@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classroom Flex - Learn CSS Flexbox</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="header">
+        <h1 class="game-title">🏫 Classroom Flex</h1>
+        <p class="creator">Created by <strong>Aliasgar Jiwani</strong></p>
+        <div class="level-info">
+          Level <span id="current-level">1</span> of
+          <span id="total-levels">30</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="instruction" id="instruction">
+          Center the items in the shelf
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="classroom-area">
+          <div class="classroom-bg"></div>
+          <div class="shelf-container">
+            <div class="shelf-top"></div>
+            <div class="flex-container" id="flex-container">
+              <div class="school-item book" title="Book">📚</div>
+              <div class="school-item pencil" title="Pencil">✏️</div>
+              <div class="school-item lunchbox" title="Lunchbox">🍱</div>
+            </div>
+            <div class="shelf-bottom"></div>
+          </div>
+        </div>
+
+        <div class="control-panel">
+          <h3>CSS Code Editor</h3>
+          <textarea
+            class="code-editor"
+            id="code-editor"
+            placeholder="display: flex;&#10;/* Add your CSS properties here */"
+          >
+display: flex;</textarea
+          >
+
+          <div class="buttons">
+            <button class="btn btn-check" id="check-btn">
+              ✅ Check Answer
+            </button>
+            <button class="btn btn-hint" id="hint-btn">💡 Hint</button>
+          </div>
+
+          <div class="buttons" style="margin-top: 10px">
+            <button class="btn btn-prev" id="prev-btn" style="display: none">
+              ⬅️ Previous Level
+            </button>
+            <button class="btn btn-next" id="next-btn" style="display: none">
+              ➡️ Next Level
+            </button>
+          </div>
+
+          <div class="feedback" id="feedback"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
