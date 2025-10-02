@@ -1,8 +1,9 @@
 const levels = [
   {
     level: 1,
-    instruction: "Put the items in the middle of the shelf",
-    hint: "Think about how to move items to the center of the shelf",
+    instruction:
+      "Center all items horizontally in the middle of the shelf. How do you center items along the main axis?",
+    hint: "Think about the justify-content property and how it controls alignment along the main axis. What value centers items?",
     expectedCSS: { "justify-content": ["center"] },
     items: [
       { type: "book", icon: "📚" },
@@ -12,9 +13,10 @@ const levels = [
   },
   {
     level: 2,
-    instruction: "Move all items to the left side of the shelf",
-    hint: "How do you align items to the beginning of the container?",
-    expectedCSS: { "justify-content": ["flex-start", "start"] },
+    instruction:
+      "Move all items to the left side of the shelf. How do you align items to the start of the container?",
+    hint: "Consider the justify-content property. What value aligns items to the beginning of the container?",
+    expectedCSS: { "justify-content": ["flex-start"] },
     items: [
       { type: "book", icon: "📚" },
       { type: "book", icon: "📕" },
@@ -23,9 +25,10 @@ const levels = [
   },
   {
     level: 3,
-    instruction: "Move all items to the right side of the shelf",
-    hint: "How do you align items to the end of the container?",
-    expectedCSS: { "justify-content": ["flex-end", "end"] },
+    instruction:
+      "Move all items to the right side of the shelf. How do you align items to the end of the container?",
+    hint: "Think about the justify-content property. What value aligns items to the end of the container?",
+    expectedCSS: { "justify-content": ["flex-end"] },
     items: [
       { type: "bag", icon: "🎒" },
       { type: "bag", icon: "👜" },
@@ -35,8 +38,8 @@ const levels = [
   {
     level: 4,
     instruction:
-      "Spread items with equal space between them. No space at the edges.",
-    hint: "What property distributes items with space between them?",
+      "Spread items with equal space between them, but no space at the edges. How do you distribute items with space between them?",
+    hint: "Consider the justify-content property. Which value puts equal space between items but not at the edges?",
     expectedCSS: { "justify-content": ["space-between"] },
     items: [
       { type: "pencil", icon: "✏️" },
@@ -47,8 +50,8 @@ const levels = [
   {
     level: 5,
     instruction:
-      "Give the same space around each item, including first and last",
-    hint: "How do you give equal space on both sides of each item?",
+      "Give the same space around each item, including first and last items. How do you give equal space around each item?",
+    hint: "Think about the justify-content property. Which value gives equal space around all items, including the edges?",
     expectedCSS: { "justify-content": ["space-around"] },
     items: [
       { type: "book", icon: "📚" },
@@ -58,8 +61,9 @@ const levels = [
   },
   {
     level: 6,
-    instruction: "Stack items from top to bottom instead of left to right",
-    hint: "How do you change the direction of items from row to column?",
+    instruction:
+      "Stack items from top to bottom instead of left to right. How do you change the direction of items?",
+    hint: "Consider the flex-direction property. How do you make items stack vertically in a column?",
     expectedCSS: { "flex-direction": ["column"] },
     items: [
       { type: "book", icon: "📚" },
@@ -69,8 +73,9 @@ const levels = [
   },
   {
     level: 7,
-    instruction: "Stack items from top to bottom and put them in the center",
-    hint: "First change direction to column, then think about centering",
+    instruction:
+      "Stack items from top to bottom and put them in the center. How do you change direction and then center items?",
+    hint: "You'll need two properties: flex-direction to change the stacking direction, and align-items to center in the cross axis.",
     expectedCSS: { "flex-direction": ["column"], "align-items": ["center"] },
     items: [
       { type: "pencil", icon: "✏️" },
@@ -80,8 +85,9 @@ const levels = [
   },
   {
     level: 8,
-    instruction: "Put items in the center both horizontally and vertically",
-    hint: "You need to control both horizontal and vertical alignment",
+    instruction:
+      "Put items in the center both horizontally and vertically. How do you center items along both axes?",
+    hint: "You need to control both the main axis and cross axis. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
       "justify-content": ["center"],
       "align-items": ["center"],
@@ -94,8 +100,9 @@ const levels = [
   },
   {
     level: 9,
-    instruction: "Stack items from bottom to top (reverse order)",
-    hint: "How do you stack items in the opposite direction?",
+    instruction:
+      "Stack items from bottom to top (reverse order). How do you reverse the stacking direction?",
+    hint: "Think about the flex-direction property. How do you reverse the column direction?",
     expectedCSS: { "flex-direction": ["column-reverse"] },
     items: [
       { type: "crayon", icon: "🖍️" },
@@ -105,8 +112,9 @@ const levels = [
   },
   {
     level: 10,
-    instruction: "Put items from right to left (reverse order)",
-    hint: "How do you arrange items in the opposite direction?",
+    instruction:
+      "Put items from right to left (reverse order). How do you reverse the arrangement direction?",
+    hint: "Consider the flex-direction property. How do you reverse the default row direction?",
     expectedCSS: { "flex-direction": ["row-reverse"] },
     items: [
       { type: "bag", icon: "🎒" },
@@ -116,8 +124,9 @@ const levels = [
   },
   {
     level: 11,
-    instruction: "When items don't fit in one line, move them to the next line",
-    hint: "What property allows items to wrap to new lines?",
+    instruction:
+      "When items don't fit in one line, move them to the next line. How do you allow items to wrap to new lines?",
+    hint: "Think about the flex-wrap property. What value allows items to wrap to multiple lines?",
     expectedCSS: { "flex-wrap": ["wrap"] },
     items: [
       { type: "book", icon: "📚" },
@@ -130,8 +139,9 @@ const levels = [
   },
   {
     level: 12,
-    instruction: "Move items to new lines and center each line",
-    hint: "Allow wrapping and think about how to center each line",
+    instruction:
+      "Move items to new lines and center each line. How do you wrap items and center each line?",
+    hint: "You need flex-wrap to allow wrapping, and justify-content to center items on each line.",
     expectedCSS: { "flex-wrap": ["wrap"], "justify-content": ["center"] },
     items: [
       { type: "pencil", icon: "✏️" },
@@ -143,8 +153,9 @@ const levels = [
   },
   {
     level: 13,
-    instruction: "Move items to new lines and spread the lines evenly",
-    hint: "When you have multiple lines, how do you space them?",
+    instruction:
+      "Move items to new lines and spread the lines evenly. How do you distribute multiple lines of items?",
+    hint: "You need flex-wrap to create multiple lines, and align-content to control how those lines are distributed.",
     expectedCSS: { "flex-wrap": ["wrap"], "align-content": ["space-between"] },
     items: [
       { type: "book", icon: "📚" },
@@ -156,8 +167,9 @@ const levels = [
   },
   {
     level: 14,
-    instruction: "Stack items in columns, allow wrapping, and center columns",
-    hint: "Stack in columns, allow wrapping, then center the columns",
+    instruction:
+      "Stack items in columns, allow wrapping, and center columns. How do you stack in columns, wrap, and center the columns?",
+    hint: "You'll need three properties: flex-direction for column stacking, flex-wrap for wrapping, and align-content for centering the lines.",
     expectedCSS: {
       "flex-direction": ["column"],
       "flex-wrap": ["wrap"],
@@ -172,8 +184,9 @@ const levels = [
   },
   {
     level: 15,
-    instruction: "Move items to new lines but put new lines above old lines",
-    hint: "How do you wrap items in reverse order?",
+    instruction:
+      "Move items to new lines but put new lines above old lines. How do you wrap items in reverse line order?",
+    hint: "Think about the flex-wrap property. What value wraps items in reverse order?",
     expectedCSS: { "flex-wrap": ["wrap-reverse"] },
     items: [
       { type: "book", icon: "📚" },
@@ -185,8 +198,9 @@ const levels = [
   },
   {
     level: 16,
-    instruction: "Put 20 pixels of space between each item",
-    hint: "What modern CSS property adds space between items?",
+    instruction:
+      "Put 20 pixels of space between each item. How do you add space between items?",
+    hint: "Consider the gap property. How do you specify the amount of space between items?",
     expectedCSS: { gap: ["20px"] },
     items: [
       { type: "book", icon: "📚" },
@@ -196,8 +210,9 @@ const levels = [
   },
   {
     level: 17,
-    instruction: "Put items in the center and add 15 pixels space between them",
-    hint: "Center items and add 15 pixels of space",
+    instruction:
+      "Put items in the center and add 15 pixels space between them. How do you center items and add space?",
+    hint: "You need to center items along both axes and then add space between them using the gap property.",
     expectedCSS: {
       "justify-content": ["center"],
       "align-items": ["center"],
@@ -211,8 +226,9 @@ const levels = [
   },
   {
     level: 18,
-    instruction: "Allow wrapping, center content, and add 10 pixels space",
-    hint: "Allow wrapping, center content, and add space between items",
+    instruction:
+      "Allow wrapping, center content, and add 10 pixels space. How do you combine wrapping, centering, and spacing?",
+    hint: "You'll need flex-wrap for wrapping, justify-content for centering, and gap for spacing.",
     expectedCSS: {
       "flex-wrap": ["wrap"],
       "justify-content": ["center"],
@@ -228,8 +244,9 @@ const levels = [
   },
   {
     level: 19,
-    instruction: "Spread items evenly in all directions with 15 pixels space",
-    hint: "Distribute items evenly and add 15 pixels of space",
+    instruction:
+      "Spread items evenly in all directions with 15 pixels space. How do you distribute items in all directions?",
+    hint: "You need flex-wrap for multiple lines, justify-content for horizontal distribution, align-content for vertical distribution, and gap for spacing.",
     expectedCSS: {
       "flex-wrap": ["wrap"],
       "justify-content": ["space-evenly"],
@@ -247,8 +264,9 @@ const levels = [
   },
   {
     level: 20,
-    instruction: "Move items to the middle from top to bottom",
-    hint: "How do you center items vertically?",
+    instruction:
+      "Move items to the middle from top to bottom. How do you center items along the cross axis?",
+    hint: "Think about the align-items property. What value centers items along the cross axis?",
     expectedCSS: { "align-items": ["center"] },
     items: [
       { type: "crayon", icon: "🖍️" },
@@ -258,9 +276,10 @@ const levels = [
   },
   {
     level: 21,
-    instruction: "Move all items to the top of the shelf",
-    hint: "How do you align items to the top of the container?",
-    expectedCSS: { "align-items": ["flex-start", "start"] },
+    instruction:
+      "Move all items to the top of the shelf. How do you align items to the start of the cross axis?",
+    hint: "Consider the align-items property. What value aligns items to the beginning of the cross axis?",
+    expectedCSS: { "align-items": ["flex-start"] },
     items: [
       { type: "notebook", icon: "📓" },
       { type: "notebook", icon: "📔" },
@@ -269,9 +288,10 @@ const levels = [
   },
   {
     level: 22,
-    instruction: "Move all items to the bottom of the shelf",
-    hint: "How do you align items to the bottom of the container?",
-    expectedCSS: { "align-items": ["flex-end", "end"] },
+    instruction:
+      "Move all items to the bottom of the shelf. How do you align items to the end of the cross axis?",
+    hint: "Think about the align-items property. What value aligns items to the end of the cross axis?",
+    expectedCSS: { "align-items": ["flex-end"] },
     items: [
       { type: "crayon", icon: "🖍️" },
       { type: "pencil", icon: "✏️" },
@@ -280,8 +300,9 @@ const levels = [
   },
   {
     level: 23,
-    instruction: "Make items fill the full height of the shelf",
-    hint: "How do you make items stretch to fill available space?",
+    instruction:
+      "Make items fill the full height of the shelf. How do you stretch items to fill available space?",
+    hint: "Consider the align-items property. What value makes items stretch to fill the container?",
     expectedCSS: { "align-items": ["stretch"] },
     items: [
       { type: "photo", icon: "🖼️" },
@@ -290,8 +311,9 @@ const levels = [
   },
   {
     level: 24,
-    instruction: "Line up the bottom of items like text on a line",
-    hint: "How do you align items along their baseline?",
+    instruction:
+      "Line up the bottom of items like text on a line. How do you align items along their baseline?",
+    hint: "Think about the align-items property. What value aligns items along their baseline, like text?",
     expectedCSS: { "align-items": ["baseline"] },
     items: [
       { type: "book", icon: "📚" },
@@ -301,11 +323,12 @@ const levels = [
   },
   {
     level: 25,
-    instruction: "Put items in the top right corner",
-    hint: "How do you position items in the top right?",
+    instruction:
+      "Put items in the top right corner. How do you position items in the top right?",
+    hint: "You need to control both horizontal and vertical positioning. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
-      "justify-content": ["flex-end", "end"],
-      "align-items": ["flex-start", "start"],
+      "justify-content": ["flex-end"],
+      "align-items": ["flex-start"],
     },
     items: [
       { type: "photo", icon: "🖼️" },
@@ -314,11 +337,12 @@ const levels = [
   },
   {
     level: 26,
-    instruction: "Put items in the bottom left corner",
-    hint: "How do you position items in the bottom left?",
+    instruction:
+      "Put items in the bottom left corner. How do you position items in the bottom left?",
+    hint: "You need to control both horizontal and vertical positioning. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
-      "justify-content": ["flex-start", "start"],
-      "align-items": ["flex-end", "end"],
+      "justify-content": ["flex-start"],
+      "align-items": ["flex-end"],
     },
     items: [
       { type: "crayon", icon: "🖍️" },
@@ -327,11 +351,12 @@ const levels = [
   },
   {
     level: 27,
-    instruction: "Put items in the center horizontally but at the bottom",
-    hint: "How do you center horizontally but align to bottom?",
+    instruction:
+      "Put items in the center horizontally but at the bottom. How do you center horizontally but align to bottom?",
+    hint: "You need to center items horizontally and align them to the bottom. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
       "justify-content": ["center"],
-      "align-items": ["flex-end", "end"],
+      "align-items": ["flex-end"],
     },
     items: [
       { type: "book", icon: "📚" },
@@ -341,8 +366,9 @@ const levels = [
   },
   {
     level: 28,
-    instruction: "Spread items horizontally and center them vertically",
-    hint: "How do you spread horizontally and center vertically?",
+    instruction:
+      "Spread items horizontally and center them vertically. How do you spread horizontally and center vertically?",
+    hint: "You need to spread items along the main axis and center them along the cross axis. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
       "justify-content": ["space-between"],
       "align-items": ["center"],
@@ -356,8 +382,9 @@ const levels = [
   },
   {
     level: 29,
-    instruction: "Stack columns backwards with wrapping and 12 pixels space",
-    hint: "How do you stack columns in reverse with wrapping and space?",
+    instruction:
+      "Stack columns backwards with wrapping and 12 pixels space. How do you stack columns in reverse with wrapping and space?",
+    hint: "You need to reverse the column direction, allow wrapping, and add space. Consider flex-direction, flex-wrap, and gap.",
     expectedCSS: {
       "flex-direction": ["column-reverse"],
       "flex-wrap": ["wrap"],
@@ -373,8 +400,8 @@ const levels = [
   {
     level: 30,
     instruction:
-      "Final Challenge: Stack columns backwards, wrap, center everything, and add 12 pixels space",
-    hint: "Combine all the techniques you've learned",
+      "Final Challenge: Stack columns backwards, wrap, center everything, and add 12 pixels space. Combine all the techniques you've learned!",
+    hint: "This is the ultimate test! You'll need to reverse column direction, wrap items, center in all directions, and add spacing.",
     expectedCSS: {
       "flex-direction": ["column-reverse"],
       "flex-wrap": ["wrap"],
@@ -505,6 +532,9 @@ function loadLevel(levelIndex) {
     flexContainer.appendChild(itemDiv);
   });
 
+  // Reset flex container styles to default
+  flexContainer.style.cssText = "display: flex; flex-wrap: nowrap;";
+
   // Load saved code for this level or set default
   if (!loadLevelCode()) {
     codeEditor.value = "display: flex;";
@@ -529,7 +559,8 @@ function checkAnswer() {
   saveLevelCode(css);
 
   try {
-    flexContainer.style.cssText = "display: flex;";
+    // Reset container styles to default (flex-wrap should be nowrap by default)
+    flexContainer.style.cssText = "display: flex; flex-wrap: nowrap;";
 
     const rules = css
       .split(";")
@@ -547,12 +578,12 @@ function checkAnswer() {
 
     const computedStyle = getComputedStyle(flexContainer);
     let isCorrect = true;
-    let missingProperties = [];
 
+    // Check for required properties only
     for (const [property, expectedValues] of Object.entries(
       level.expectedCSS
     )) {
-      const computedValue = computedStyle.getPropertyValue(property);
+      const computedValue = computedStyle.getPropertyValue(property).trim();
 
       // Convert expectedValues to array if it's not already
       const expectedArray = Array.isArray(expectedValues)
@@ -561,21 +592,21 @@ function checkAnswer() {
 
       // Check if computed value matches any of the expected values
       const isPropertyCorrect = expectedArray.some((expectedValue) => {
-        if (property === "gap" && expectedValue !== "0px") {
-          const gapValue = parseInt(computedValue);
-          const expectedGapValue = parseInt(expectedValue);
-          return (
-            gapValue >= expectedGapValue * 0.8 &&
-            gapValue <= expectedGapValue * 1.2
-          );
-        } else {
+        // For gap property, we need exact match
+        if (property === "gap") {
+          // Normalize values for comparison (e.g., "20px" should match "20px")
+          const normalizedComputed = computedValue.replace(/\s+/g, " ");
+          const normalizedExpected = expectedValue.replace(/\s+/g, " ");
+          return normalizedComputed === normalizedExpected;
+        }
+        // For other properties, check exact match
+        else {
           return computedValue === expectedValue;
         }
       });
 
       if (!isPropertyCorrect) {
         isCorrect = false;
-        missingProperties.push({ property, expectedValues: expectedArray });
       }
     }
 
@@ -583,19 +614,21 @@ function checkAnswer() {
       showSuccess();
     } else {
       // Show the correct answer when user gets it wrong
-      const correctAnswers = missingProperties
-        .map((prop) => {
-          return `${prop.property}: ${prop.expectedValues[0]}`;
+      const expectedProperties = Object.entries(level.expectedCSS)
+        .map(([property, values]) => {
+          // Use the first expected value as the correct answer
+          const expectedValue = Array.isArray(values) ? values[0] : values;
+          return `${property}: ${expectedValue}`;
         })
         .join("; ");
 
       showError(
-        `Not quite right. The correct answer includes: ${correctAnswers}`
+        `❌ Not quite right. The correct answer is: ${expectedProperties}`
       );
     }
   } catch (error) {
     showError(
-      "There's a syntax error in your CSS. Please check and try again!"
+      "❌ There's a syntax error in your CSS. Please check and try again!"
     );
   }
 }
