@@ -16,7 +16,7 @@ const levels = [
     instruction:
       "Move all items to the left side of the shelf. How do you align items to the start of the container?",
     hint: "Consider the justify-content property. What value aligns items to the beginning of the container?",
-    expectedCSS: { "justify-content": ["flex-start"] },
+    expectedCSS: { "justify-content": ["flex-start", "start"] },
     items: [
       { type: "book", icon: "📚" },
       { type: "book", icon: "📕" },
@@ -28,7 +28,7 @@ const levels = [
     instruction:
       "Move all items to the right side of the shelf. How do you align items to the end of the container?",
     hint: "Think about the justify-content property. What value aligns items to the end of the container?",
-    expectedCSS: { "justify-content": ["flex-end"] },
+    expectedCSS: { "justify-content": ["flex-end", "end"] },
     items: [
       { type: "bag", icon: "🎒" },
       { type: "bag", icon: "👜" },
@@ -279,7 +279,7 @@ const levels = [
     instruction:
       "Move all items to the top of the shelf. How do you align items to the start of the cross axis?",
     hint: "Consider the align-items property. What value aligns items to the beginning of the cross axis?",
-    expectedCSS: { "align-items": ["flex-start"] },
+    expectedCSS: { "align-items": ["flex-start", "start"] },
     items: [
       { type: "notebook", icon: "📓" },
       { type: "notebook", icon: "📔" },
@@ -291,7 +291,7 @@ const levels = [
     instruction:
       "Move all items to the bottom of the shelf. How do you align items to the end of the cross axis?",
     hint: "Think about the align-items property. What value aligns items to the end of the cross axis?",
-    expectedCSS: { "align-items": ["flex-end"] },
+    expectedCSS: { "align-items": ["flex-end", "end"] },
     items: [
       { type: "crayon", icon: "🖍️" },
       { type: "pencil", icon: "✏️" },
@@ -327,8 +327,8 @@ const levels = [
       "Put items in the top right corner. How do you position items in the top right?",
     hint: "You need to control both horizontal and vertical positioning. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
-      "justify-content": ["flex-end"],
-      "align-items": ["flex-start"],
+      "justify-content": ["flex-end", "end"],
+      "align-items": ["flex-start", "start"],
     },
     items: [
       { type: "photo", icon: "🖼️" },
@@ -341,8 +341,8 @@ const levels = [
       "Put items in the bottom left corner. How do you position items in the bottom left?",
     hint: "You need to control both horizontal and vertical positioning. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
-      "justify-content": ["flex-start"],
-      "align-items": ["flex-end"],
+      "justify-content": ["flex-start", "start"],
+      "align-items": ["flex-end", "end"],
     },
     items: [
       { type: "crayon", icon: "🖍️" },
@@ -356,7 +356,7 @@ const levels = [
     hint: "You need to center items horizontally and align them to the bottom. Consider justify-content for horizontal and align-items for vertical.",
     expectedCSS: {
       "justify-content": ["center"],
-      "align-items": ["flex-end"],
+      "align-items": ["flex-end", "end"],
     },
     items: [
       { type: "book", icon: "📚" },
@@ -616,9 +616,13 @@ function checkAnswer() {
       // Show the correct answer when user gets it wrong
       const expectedProperties = Object.entries(level.expectedCSS)
         .map(([property, values]) => {
-          // Use the first expected value as the correct answer
-          const expectedValue = Array.isArray(values) ? values[0] : values;
-          return `${property}: ${expectedValue}`;
+          // Show all acceptable values
+          const expectedValues = Array.isArray(values) ? values : [values];
+          if (expectedValues.length > 1) {
+            return `${property}: ${expectedValues.join(" or ")}`;
+          } else {
+            return `${property}: ${expectedValues[0]}`;
+          }
         })
         .join("; ");
 
