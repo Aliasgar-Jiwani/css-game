@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta
+      name="description"
+      content="Learn CSS Grid with this interactive game"
+    />
+    <meta name="theme-color" content="#2c3e50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Classroom Grid" />
+    <title>Classroom Grid - Learn CSS Grid</title>
+    <link rel="stylesheet" href="grid-style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRYw+2WvUoDQRCHfzdqIViIiGBjIVj4B/gEgkVsbCwsLCy0sbGxsrAQlBYWFhYWYmNhYaGFhbXgOzE5Nrt7u5ub3F0SP2SY2ZlvZ3Zmdm9ZWZZYLBaLxWKxWCwWi8VisVgsFovFYvl/cQucADfAFTADroEL4BjYAVaBjRznGbgGzoHDPMZmju8DP4ANIARe8tgXwFOeawh8AlvAKrAGfOfx98A18JHH3cj51oB34AZYB1bzeC/AETAFLvKYm8An8Ahc5vx7wGuOdwIc5vgpcJRj94FNYCPHvwOugLMcOwR2cvwMeMhx+8BujrsArgFy/BFwkcfvA9s5fgac59hDYLfEfwNugLMc2wf2StxN4CbHngAHJeYGMMuxx8BBiTnMcYe5jg4wKDE7wGWO2S8xF8BpjtkBLkrMAfCSY/aAyxJzCLzmOnaBqxJzDLzlOvaA6xJzArznOvaBGxJ/A9zlOg6AmxJzCNznOg6B2xJzBDzkOo6AuxJzDDzmOk6AuxJzAjzlOk6B+1JnzwGfJeYFeCwxl8BrqeMSuCxxV8BbieMSuC5x18B7ieMS+CjV8QnMSpwDXCXOBfBV4lwA3yXOBfBX4lwA/yTOhfEPWQZ2fxhKPuoAAAAASUVORK5CYII="
+    />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="header">
+        <div class="nav-back">
+            <a href="index.html" class="btn-back">🏠 Home</a>
+        </div>
+        <h1 class="game-title">🏫 Classroom Grid</h1>
+        <p class="creator">Created by <strong>Aliasgar Jiwani</strong></p>
+        <div class="level-info">
+          Level <span id="current-level">1</span> of
+          <span id="total-levels">10</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="instruction" id="instruction">
+          Turn the container into a grid.
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="classroom-area">
+          <div class="classroom-bg"></div>
+          <div class="shelf-container">
+            <div class="shelf-top"></div>
+            <div class="grid-container" id="grid-container">
+              <!-- Items will be injected here -->
+            </div>
+            <div class="shelf-bottom"></div>
+          </div>
+        </div>
+
+        <div class="control-panel">
+          <h3>CSS Code Editor</h3>
+          <textarea
+            class="code-editor"
+            id="code-editor"
+            placeholder="display: grid;"
+          ></textarea>
+
+          <div class="buttons">
+            <button class="btn btn-check" id="check-btn">
+              ✅ Check Answer
+            </button>
+            <button class="btn btn-hint" id="hint-btn">💡 Hint</button>
+          </div>
+
+          <div class="buttons" style="margin-top: 10px">
+            <button class="btn btn-prev" id="prev-btn" style="display: none">
+              ⬅️ Previous Level
+            </button>
+            <button class="btn btn-next" id="next-btn" style="display: none">
+              ➡️ Next Level
+            </button>
+          </div>
+
+          <div class="feedback" id="feedback"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="grid-script.js"></script>
+  </body>
+</html>

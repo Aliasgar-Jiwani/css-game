@@ -8,82 +8,196 @@
     />
     <meta
       name="description"
-      content="Learn CSS Flexbox with this interactive game"
+      content="Learn CSS Flexbox and Grid with interactive games"
     />
     <meta name="theme-color" content="#1a2a6c" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Classroom Flex" />
-    <title>Classroom Flex - Learn CSS Flexbox</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRYw+2WvUoDQRCHfzdqIViIiGBjIVj4B/gEgkVsbCwsLCy0sbGxsrAQlBYWFhYWYmNhYaGFhbXgOzE5Nrt7u5ub3F0SP2SY2ZlvZ3Zmdm9ZWZZYLBaLxWKxWCwWi8VisVgsFovFYvl/cQucADfAFTADroEL4BjYAVaBjRznGbgGzoHDPMZmju8DP4ANIARe8tgXwFOeawh8AlvAKrAGfOfx98A18JHH3cj51oB34AZYB1bzeC/AETAFLvKYm8An8Ahc5vx7wGuOdwIc5vgpcJRj94FNYCPHvwOugLMcOwR2cvwMeMhx+8BujrsArgFy/BFwkcfvA9s5fgac59hDYLfEfwNugLMc2wf2StxN4CbHngAHJeYGMMuxx8BBiTnMcYe5jg4wKDE7wGWO2S8xF8BpjtkBLkrMAfCSY/aAyxJzCLzmOnaBqxJzDLzlOvaA6xJzArznOvaBGxJ/A9zlOg6AmxJzCNznOg6B2xJzBDzkOo6AuxJzDDzmOk6AuxJzAjzlOk6B+1JnzwGfJeYFeCwxl8BrqeMSuCxxV8BbieMSuC5x18B7ieMS+CjV8QnMSpwDXCXOBfBV4lwA3yXOBfBT4lwAvyXOBfBX4lwA/yTOhfEPWQZ2fxhKPuoAAAAASUVORK5CYII="
-    />
+    <title>CSS Classroom - Learn Flexbox & Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+        min-height: 100vh;
+        color: #333;
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        max-width: 1000px;
+        width: 90%;
+        text-align: center;
+      }
+
+      .main-title {
+        font-size: 3.5em;
+        color: white;
+        margin-bottom: 10px;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        font-weight: 800;
+      }
+
+      .subtitle {
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 50px;
+      }
+
+      .cards-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .game-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 25px;
+        padding: 40px;
+        width: 350px;
+        text-decoration: none;
+        color: #333;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 4px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .game-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-icon {
+        font-size: 5em;
+        margin-bottom: 20px;
+        transition: transform 0.4s ease;
+      }
+
+      .game-card:hover .card-icon {
+        transform: scale(1.2) rotate(10deg);
+      }
+
+      .card-title {
+        font-size: 2em;
+        font-weight: 800;
+        margin-bottom: 15px;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .card-desc {
+        font-size: 1.1em;
+        color: #666;
+        line-height: 1.5;
+        margin-bottom: 25px;
+      }
+
+      .play-btn {
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Flex Card Styles */
+      .card-flex {
+        border-color: #3498db;
+      }
+
+      .card-flex .card-title {
+        background-image: linear-gradient(45deg, #1a2a6c, #b21f1f);
+      }
+
+      .card-flex .play-btn {
+        background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+      }
+
+      .card-flex:hover .play-btn {
+        box-shadow: 0 8px 25px rgba(26, 42, 108, 0.4);
+      }
+
+      /* Grid Card Styles */
+      .card-grid {
+        border-color: #16a085;
+      }
+
+      .card-grid .card-title {
+        background-image: linear-gradient(45deg, #16a085, #2ecc71);
+      }
+
+      .card-grid .play-btn {
+        background: linear-gradient(45deg, #16a085, #2ecc71);
+      }
+
+      .card-grid:hover .play-btn {
+        box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 2.5em;
+        }
+        .game-card {
+          width: 100%;
+          max-width: 350px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="game-container">
-      <div class="header">
-        <h1 class="game-title">🏫 Classroom Flex</h1>
-        <p class="creator">Created by <strong>Aliasgar Jiwani</strong></p>
-        <div class="level-info">
-          Level <span id="current-level">1</span> of
-          <span id="total-levels">30</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="instruction" id="instruction">
-          Center the items in the shelf
-        </div>
-      </div>
+    <div class="container">
+      <h1 class="main-title">CSS Classroom</h1>
+      <p class="subtitle">Master modern CSS layouts through interactive games</p>
 
-      <div class="main-content">
-        <div class="classroom-area">
-          <div class="classroom-bg"></div>
-          <div class="shelf-container">
-            <div class="shelf-top"></div>
-            <div class="flex-container" id="flex-container">
-              <div class="school-item book" title="Book">📚</div>
-              <div class="school-item pencil" title="Pencil">✏️</div>
-              <div class="school-item lunchbox" title="Lunchbox">🍱</div>
-            </div>
-            <div class="shelf-bottom"></div>
-          </div>
-        </div>
+      <div class="cards-container">
+        <a href="flex.html" class="game-card card-flex">
+          <div class="card-icon">🧘</div>
+          <h2 class="card-title">Flex Game</h2>
+          <p class="card-desc">
+            Master the art of alignment and distribution with Flexbox.
+            Perfect for 1D layouts.
+          </p>
+          <span class="play-btn">Play Flexbox</span>
+        </a>
 
-        <div class="control-panel">
-          <h3>CSS Code Editor</h3>
-          <textarea
-            class="code-editor"
-            id="code-editor"
-            placeholder="display: flex;&#10;/* Add your CSS properties here */"
-          >
-display: flex;</textarea
-          >
-
-          <div class="buttons">
-            <button class="btn btn-check" id="check-btn">
-              ✅ Check Answer
-            </button>
-            <button class="btn btn-hint" id="hint-btn">💡 Hint</button>
-          </div>
-
-          <div class="buttons" style="margin-top: 10px">
-            <button class="btn btn-prev" id="prev-btn" style="display: none">
-              ⬅️ Previous Level
-            </button>
-            <button class="btn btn-next" id="next-btn" style="display: none">
-              ➡️ Next Level
-            </button>
-          </div>
-
-          <div class="feedback" id="feedback"></div>
-        </div>
+        <a href="grid.html" class="game-card card-grid">
+          <div class="card-icon">▦</div>
+          <h2 class="card-title">Grid Game</h2>
+          <p class="card-desc">
+            Learn to build complex 2D layouts with rows and columns using CSS Grid.
+          </p>
+          <span class="play-btn">Play Grid</span>
+        </a>
       </div>
     </div>
-
-    <script src="script.js"></script>
   </body>
 </html>
